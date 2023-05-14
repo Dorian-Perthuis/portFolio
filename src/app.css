@@ -1,3 +1,10 @@
+:root{
+  --black-color: #121212;
+  --grey-color: #EFEFEF;
+  --white-color: #ffffff;
+  --accent-color: #595FF3;
+}
+
 *{
   margin: 0;
   padding: 0;

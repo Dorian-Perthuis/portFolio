@@ -1,27 +1,25 @@
-<script>
+<script lang="ts">
     import { fly } from 'svelte/transition';
-    export let visible = true;
-
-    function handleClick(event){
-        visible = !visible;
-    }
+    export let visible:boolean = true;
+    export let delay: number = 0;
 </script>
 
-<div on:click={handleClick}>
+<div>
     {#if visible}
-    <div transition:fly="{{y:10, duration:300}}"><slot></slot></div>
+    <p transition:fly="{{y:80, duration:450, delay}}"><slot></slot></p>
     {/if}
 </div>
 
 <style>
     div{
-        position: relative;
         width: fit-content;
         height: fit-content;
         overflow: hidden;
     }
-
     p{
-        position: absolute;
+        font-family: "MinionPro";
+        font-size: 3rem;
+        padding-inline: 0.5rem;
+        color: var(--black-color);
     }
 </style>
