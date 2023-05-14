@@ -11,8 +11,8 @@
 }
 
 @font-face {
-  font-family: 'louisGeorgeCafe';
-  src: url('./assets/fonts/LouisGeorgeCafe.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'MinionPro';
+  src: url('./assets/fonts/MinionProSemibold.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
