@@ -18,7 +18,7 @@
     }
     p{
         font-family: "MinionPro";
-        font-size: 3rem;
+        font-size: clamp(1rem, 4vw ,3rem);
         padding-inline: 0.5rem;
         color: var(--black-color);
     }

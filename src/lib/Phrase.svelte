@@ -11,6 +11,7 @@
 
     function handleLoad(event){
         window.setTimeout(()=>{
+
             visible=!visible;
         }, delay);
     }
@@ -18,7 +19,7 @@
 
 <svelte:window on:load={handleLoad}/>
 
-<div>
+<div class:expand="{visible}">
     {#each words as word, index}
         <Word delay={index*delayBetweenWord} bind:visible={visible}>{word}</Word>          
     {/each}
@@ -30,7 +31,12 @@
     div{
         display: flex;
         width: fit-content;
-        height: fit-content;
+        max-height: 0;
         align-items: center;
+        transition: max-height 1.5s cubic-bezier(0.49, 0.88, 0.34, 1);
+    }
+
+    div.expand{
+        max-height: 75px;
     }
 </style>
