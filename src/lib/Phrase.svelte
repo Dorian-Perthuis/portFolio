@@ -4,11 +4,10 @@
     export let visible:boolean = false;
     export let delay:number = 0;
 
-    let delayBetweenWord:number = 200;
+    let delayBetweenWord:number = 300;
 
 
     let words = value.split(" ");
-    
 
     function handleLoad(event){
         window.setTimeout(()=>{
@@ -21,8 +20,10 @@
 
 <div>
     {#each words as word, index}
-        <Word delay={index*delayBetweenWord} bind:visible={visible}>{word}</Word>
+        <Word delay={index*delayBetweenWord} bind:visible={visible}>{word}</Word>          
     {/each}
+
+    <slot></slot>
 </div>
 
 <style>
@@ -30,5 +31,6 @@
         display: flex;
         width: fit-content;
         height: fit-content;
+        align-items: center;
     }
 </style>
