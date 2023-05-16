@@ -3,7 +3,9 @@
   --grey-color: #EFEFEF;
   --white-color: #ffffff;
   --accent-color: #595FF3;
-  
+  --font-size-big: 5rem;
+  --font-size-medium: 3rem;
+  --font-size-small:1rem;
 }
 
 *{

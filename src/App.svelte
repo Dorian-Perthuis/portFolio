@@ -1,9 +1,10 @@
 <script lang="ts">
-  import HeroBanner from "./lib/heroBanner.svelte";
+  import HamburgerMenu from "./lib/hamburgerMenu.svelte";
+import HeroBanner from "./lib/heroBanner.svelte";
 </script>
 
 <main>
-    <div class="heroBanner"><HeroBanner></HeroBanner></div>
+    <HamburgerMenu></HamburgerMenu>
 </main>
 
 <style>

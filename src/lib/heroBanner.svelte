@@ -55,6 +55,8 @@
         justify-content: end;
         align-items: start; 
         padding-bottom: 25%;
+        font-family: "MinionPro";
+        color:var(--black-color);
     }
     #description::before{
         position: absolute;
