@@ -1,9 +1,11 @@
 <script lang="ts">
     import profilPicture from "../assets/pictures/profilPicture.png";
     import Phrase from "./Phrase.svelte";
-  import BubbleAnimation from "./bubbleAnimation.svelte";
-  import HeartAnimation from "./heartAnimation.svelte";
+    import BubbleAnimation from "./bubbleAnimation.svelte";
+    import HeartAnimation from "./heartAnimation.svelte";
     import HiAnimation from "./hiAnimation.svelte";
+    import IconBtn from "./iconBtn.svelte";
+    import IconArrow from "./icons/iconArrow.svelte";
 </script>
 
 <div class=container>
@@ -22,8 +24,7 @@
         <Phrase delay={11000} value="Let me show you my works..."></Phrase>
     </div>
     <div id='right'>
-        
-        
+        <IconBtn><IconArrow/></IconBtn>
     </div>
 </div>
 
@@ -67,7 +68,7 @@
 
     #right{
         justify-self: center;
-        align-self: center;
+        align-self: end;
     }
 
 </style>
