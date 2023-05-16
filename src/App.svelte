@@ -3,8 +3,24 @@
 </script>
 
 <main>
-  <HeroBanner></HeroBanner>
+    <div class="heroBanner"><HeroBanner></HeroBanner></div>
 </main>
 
 <style>
+  .heroBanner{
+    position: absolute;
+    top:0;
+    left:0;
+  }
+  .slide{
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+  main{
+    position:relative;
+    box-sizing: border-box;
+    overflow: none;
+  }
+
 </style>

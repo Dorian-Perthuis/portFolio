@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { quadOut } from "svelte/easing";
 
     //----Animation variables
     let start : DOMHighResTimeStamp | undefined = undefined;
@@ -37,6 +38,7 @@
         }
     }
 
+    //--------------Enter Hover--------------
     function initEnterAnim(e : MouseEvent){
         enterPoint = getMouseRelativePosition(e);
         isEnterAnim = true;
@@ -73,7 +75,7 @@
         previousTimeStamp = undefined;
     }
 
-    //--------------Leave Animation--------------
+    //--------------Leave Hover--------------
   function initLeaveAnim(e : MouseEvent){
     leavePoint = getMouseRelativePosition(e);
     isLeaveAnim = true;
@@ -122,11 +124,25 @@
         }
   }
 
+  function loadAnim(node, { duration }) {
+		return {
+			duration,
+			css: t => {
+				const eased = quadOut(t);
+
+				return `
+					opacity: ${eased};
+					box-shadow: ${0.3*eased}rem ${0.3*eased}rem var(--accent-color);`
+			}
+		};
+	}
 
 </script>
+
     {#if ready}
-        <button bind:this={btn} on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
+        <button in:loadAnim={{duration:500}} bind:this={btn} on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
     {/if}
+
 <style>
     button{
         height: fit-content;
