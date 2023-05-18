@@ -4,11 +4,32 @@
     import BubbleAnimation from "./bubbleAnimation.svelte";
     import HeartAnimation from "./heartAnimation.svelte";
     import HiAnimation from "./hiAnimation.svelte";
-    import IconBtn from "./iconBtn.svelte";
+    import IconBtn from "./buttons/iconBtn.svelte";
     import IconArrow from "./icons/iconArrow.svelte";
-</script>
+    import { cubicInOut, elasticIn, quadInOut, sineIn } from "svelte/easing";
 
-<div class=container>
+    let show:boolean = true;
+
+    function btnClickHandle(e){
+        show = !show;
+    }
+
+    function translate(node , {duration}){
+        return {
+			duration,
+			css: t => {
+				const eased = quadInOut(t);
+
+				return `
+                position:absolute;
+                transform : translateY(-${(1-eased)*100}vh);`
+            }
+        };
+    }
+
+</script>
+{#if show}
+<div transition:translate={{duration:3500}} class='container'>
     <img id="profilPicture" alt="dorian perthuis" src={profilPicture}>
     <div id="description">
         <Phrase delay={100} value="Hi !"> <HiAnimation delay="500ms"></HiAnimation></Phrase>
@@ -18,16 +39,17 @@
             <BubbleAnimation delay="3700ms">🔴</BubbleAnimation>
         </Phrase>
         <Phrase delay={5000} value="and a future software engineer."></Phrase>
-        <Phrase delay={8000} value="I am a creative developer lover.">
+        <Phrase delay={8000} value="I am a creative development lover.">
             <HeartAnimation delay={9500}></HeartAnimation>
         </Phrase>
         <Phrase delay={11000} value="Let me show you my works..."></Phrase>
     </div>
     <div id='right'>
-        <IconBtn><IconArrow/></IconBtn>
+        <IconBtn on:click={btnClickHandle}><IconArrow/></IconBtn>
     </div>
 </div>
 
+{/if}
 
 <style>
     .container{
@@ -39,8 +61,10 @@
         height: 100vh;
         width: 100vw;
         box-sizing: border-box;
+        background-color: var(--white-color);
+        z-index: 1000;
+        
     }
-
 
     #profilPicture{
         width: 100%;

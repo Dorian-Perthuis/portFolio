@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { createEventDispatcher, onMount } from "svelte";
     import { quadOut } from "svelte/easing";
 
     //----Animation variables
@@ -18,6 +18,7 @@
 
     //-----Variables
     let ready = false;
+    const dispatch = createEventDispatcher();
 
     onMount(() => {
         ready = true;
@@ -140,7 +141,7 @@
 </script>
 
     {#if ready}
-        <button in:loadAnim={{duration:500}} bind:this={btn} on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
+        <button in:loadAnim={{duration:500}} bind:this={btn} on:click on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
     {/if}
 
 <style>

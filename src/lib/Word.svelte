@@ -6,7 +6,7 @@
 
 <div>
     {#if visible}
-    <p transition:fly="{{y:80, duration:450, delay}}"><slot></slot></p>
+    <p in:fly="{{y:80, duration:450, delay}}"><slot></slot></p>
     {/if}
 </div>
 
@@ -17,7 +17,8 @@
         overflow: hidden;
     }
     p{
-        font-size: clamp(1rem, 4vw ,3rem);
+        font-size: clamp(var(--font-size-small), 4vw ,var(--font-size-medium));
         padding-inline: 0.5rem;
+        font-family: var(--font-family-heroBanner);
     }
 </style>

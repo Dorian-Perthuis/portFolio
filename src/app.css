@@ -1,11 +1,15 @@
 :root{
   --black-color: #121212;
   --grey-color: #EFEFEF;
+  --dark-grey-color:#2f2f2f;
   --white-color: #ffffff;
   --accent-color: #595FF3;
+
   --font-size-big: 5rem;
   --font-size-medium: 3rem;
   --font-size-small:1rem;
+
+  --font-family-heroBanner:'MinionPro';
 }
 
 *{
