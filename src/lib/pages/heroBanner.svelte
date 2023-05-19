@@ -82,6 +82,7 @@
         align-items: start; 
         padding-bottom: 25%;
         font-family: "MinionPro";
+        font-size: 3rem;
         color:var(--black-color);
     }
     #description::before{
