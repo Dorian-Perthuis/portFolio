@@ -1,12 +1,12 @@
 <script lang="ts">
-    import profilPicture from "../assets/pictures/profilPicture.png";
-    import Phrase from "./Phrase.svelte";
-    import BubbleAnimation from "./bubbleAnimation.svelte";
-    import HeartAnimation from "./heartAnimation.svelte";
-    import HiAnimation from "./hiAnimation.svelte";
-    import IconBtn from "./buttons/iconBtn.svelte";
-    import IconArrow from "./icons/iconArrow.svelte";
-    import { cubicInOut, elasticIn, quadInOut, sineIn } from "svelte/easing";
+    import profilPicture from "../../assets/pictures/profilPicture.png";
+    import Phrase from "../animated/Phrase.svelte";
+    import BubbleAnimation from "../animated/bubbleAnimation.svelte";
+    import HeartAnimation from "../animated/heartAnimation.svelte";
+    import HiAnimation from "../animated/hiAnimation.svelte";
+    import IconBtn from "../buttons/iconBtn.svelte";
+    import IconArrow from "../icons/iconArrow.svelte";
+    import { quadInOut } from "svelte/easing";
 
     let show:boolean = true;
 
@@ -22,7 +22,9 @@
 
 				return `
                 position:absolute;
-                transform : translateY(-${(1-eased)*100}vh);`
+                transform : translateY(-${(1-eased)*100}vh);
+                box-shadow : 15px 0 50px 2px rgba(0,0,0, ${eased*0.25});
+                `
             }
         };
     }
@@ -63,7 +65,7 @@
         box-sizing: border-box;
         background-color: var(--white-color);
         z-index: 1000;
-        
+        box-shadow: 15px 0 50px 2px rgba(0,0,0,0.25);
     }
 
     #profilPicture{

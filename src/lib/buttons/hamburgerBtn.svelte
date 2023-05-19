@@ -19,6 +19,7 @@
         align-items: stretch;
         width: 3em;
         height: 2.5rem;
+        cursor: pointer;
     }
 
     .container:hover > .line{

@@ -1,18 +1,22 @@
 <script lang="ts">
   import HamburgerBtn from "./lib/buttons/hamburgerBtn.svelte";
-  import HamburgerMenu from "./lib/hamburgerMenu.svelte";
-  import HeroBanner from "./lib/heroBanner.svelte";
+  import HamburgerMenu from "./lib/pages/hamburgerMenu.svelte";
+  import HeroBanner from "./lib/pages/heroBanner.svelte";
   import CvPage from "./lib/pages/CVPage.svelte";
   import ContactPage from "./lib/pages/contactPage.svelte";
   import ProjectsPage from "./lib/pages/projetsPage.svelte";
   
   let hamMenuActive:boolean = false;
+  let pageDisplay:string = "projects";
 
   function hamMenuToggle(){
     hamMenuActive = !hamMenuActive;
   }
 
-  let pageDisplay:string = "projects";
+  function switchPage(e){
+    hamMenuToggle();
+    pageDisplay = e.detail.page;
+  }
 </script>
 
 <div class="frontContainer">
@@ -21,24 +25,24 @@
 
 <div class="frontContainer">
   {#if hamMenuActive}
-  <HamburgerMenu on:click={hamMenuToggle} on:keyup={hamMenuToggle}></HamburgerMenu>
+  <HamburgerMenu on:navigate={switchPage} on:open={hamMenuToggle}></HamburgerMenu>
   {/if}
 </div>
 
 
 <main>
   <header>
-    <HamburgerBtn on:click={hamMenuToggle} on:keyup={hamMenuToggle}></HamburgerBtn>
+    <HamburgerBtn on:click={hamMenuToggle}></HamburgerBtn>
   </header>
 
-  {#if pageDisplay="projects"}
-    <ProjectsPage></ProjectsPage>
-  {:else if pageDisplay="CV"}
-    <CvPage></CvPage>
-  {:else if pageDisplay="contact"}
-    <ContactPage></ContactPage>
-  {/if}
-    
+  <div class="headline"></div>
+    {#if pageDisplay=="projects"}
+      <ProjectsPage></ProjectsPage>
+    {:else if pageDisplay=="CV"}
+      <CvPage></CvPage>
+    {:else if pageDisplay=="contact"}
+      <ContactPage></ContactPage>
+    {/if}
 </main>
 
 <footer>

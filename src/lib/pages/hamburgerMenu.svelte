@@ -1,8 +1,9 @@
 <script lang="ts">
-    import Phrase from "./Phrase.svelte";
+    import Phrase from "../animated/Phrase.svelte";
     import { fade, fly } from "svelte/transition";
-    import { cubicInOut } from "svelte/easing";
-    import { onMount } from 'svelte';
+    import { createEventDispatcher, onMount } from 'svelte';
+
+    const dispatch = createEventDispatcher();
 
     let isLoaded:boolean = false;
 
@@ -10,25 +11,38 @@
         isLoaded = true;
     })
 
+    function openMenu(){
+        dispatch('open');
+    }
 
+    function openProject(){
+        dispatch("navigate", {page:"projects"})
+    }
+
+    function openCV(){
+        dispatch("navigate", {page:"CV"})
+    }
+
+    function openContact(){
+        dispatch("navigate", {page:"contact"})
+    }
 </script>
 {#if isLoaded}
-    <div class="menu">
+    <div in:fade={{duration:250}} out:fade={{duration:450}} class="menu">
         
-        <div  on:keyup on:click class="btn">
-            <div transition:fly={{duration:1500, delay:250, x:'25'}} id="l1" class="line">
+        <div  on:keyup on:click={openMenu} class="btn">
+            <div in:fly={{duration:1500, delay:250, x:'25'}} id="l1" class="line">
             </div>
-            <div transition:fly={{duration:1500, delay:750, x:'-25'}} id="l2" class="line">
+            <div in:fly={{duration:1500, delay:750, x:'-25'}} id="l2" class="line">
             </div>
         </div>
 
         <div class="container">
-            <h1><Phrase delay={500} value="Projects"></Phrase></h1>
+            <h1 on:click={openProject}><Phrase delay={500} value="Projects"></Phrase></h1>
             <hr in:fade={{duration:800, delay:300}}>
-            <h1><Phrase delay={800} value="Curiculum-Vitae"></Phrase></h1>
+            <h1 on:click={openCV}><Phrase delay={800} value="Curiculum-Vitae"></Phrase></h1>
             <hr in:fade={{duration:800, delay:600}}>
-
-            <h1><Phrase delay={1200} value="Contact"></Phrase></h1>
+            <h1 on:click={openContact}><Phrase delay={1200} value="Contact"></Phrase></h1>
         </div>
     </div>
 {/if}
@@ -62,6 +76,7 @@
         font-size: var(--font-size-big);
         color: var(--white-color);
         flex-grow: 1;
+        cursor: pointer;
     }  
 
     .btn{
@@ -70,6 +85,7 @@
         right: 5rem;
         height: 3rem;
         aspect-ratio: 1;
+        cursor: pointer;
     }
 
     .line{
