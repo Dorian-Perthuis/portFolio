@@ -6,7 +6,7 @@
     export let visible:boolean = false;
     export let delay:number = 0;
 
-    let delayBetweenWord:number = 300;
+    export let delayBetweenWord:number = 300;
     let words = value.split(" ");
 
     onMount(() => {
@@ -31,7 +31,7 @@
         max-height: 0;
         align-items: center;
         transition: max-height 1.5s cubic-bezier(0.49, 0.88, 0.34, 1);
-        font-family: inherit;
+        font: inherit;
     }
 
     div.expand{

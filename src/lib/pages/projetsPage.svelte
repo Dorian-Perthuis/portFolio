@@ -1,12 +1,13 @@
 <script>
     import ConveyorBeltWord from "../animated/conveyorBeltWord.svelte";
+  import CardProject from "../cardProject.svelte";
 </script>
 
 <div class="container">
     <div id="title">
         <h1><ConveyorBeltWord nb={8} space={25} time={10} lenght={364.38} word="Projects"></ConveyorBeltWord></h1></div>
     <div id="main">
-        
+        <CardProject></CardProject>
     </div>
 </div>
 
@@ -35,6 +36,10 @@
     }
 
     #main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         height: 100%;
         width: 100%;
     }
