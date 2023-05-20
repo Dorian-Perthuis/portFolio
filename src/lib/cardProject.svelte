@@ -1,10 +1,13 @@
 <script lang="ts">
-    import { fade } from "svelte/transition";
-    import Phrase from "./animated/Phrase.svelte";
+    import { slide } from "svelte/transition";
+    import ConveyorBeltWord from "./animated/conveyorBeltWord.svelte";
+    import { createEventDispatcher } from "svelte";
 
-    let info;
+    const dispatch = createEventDispatcher();
+
+    export let info;
     let hover:boolean = false;
-
+    let click:boolean = false;
     
     function mouseEnterHandle(){
         hover = true;
@@ -12,15 +15,25 @@
 
     function mouseLeaveHandle(){
         hover = false;
+        click = false;
+    }
+
+    function clickHandle(){
+        click=!click;
+        dispatch("dialogEvent", {open:click, info:info});
     }
 
 </script>
 
-<div on:mouseenter={mouseEnterHandle} on:mouseleave={mouseLeaveHandle} class="container">
-
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div on:mouseenter={mouseEnterHandle} on:mouseleave={mouseLeaveHandle} on:click={clickHandle} class="container">
     {#if hover}
-        <div transition:fade={{duration:250}} class="title">
-            <Phrase delayBetweenWord={100} value="Game of life"></Phrase>
+        {#if click}
+        <div transition:slide={{duration:250}} class="curtain"></div>
+        {/if}
+        
+        <div transition:slide={{duration:250}} class="title">
+            <ConveyorBeltWord time={3.5} lenght={152.91} nb={5} word="Game of Life"></ConveyorBeltWord>
         </div>
     {/if}
 </div>
@@ -28,6 +41,9 @@
 <style lang="scss">
     .container{
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
         min-width: 200px;
         min-height: 200px;
         max-width: 400px;
@@ -36,17 +52,23 @@
         resize: both;
         overflow: auto;
 
-        & > .title{
+        & > .curtain{
             position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+        }
+
+        & > .title{
+            position:absolute;
             display: flex;
             justify-content: start;
             align-items: end;
-            color:white;
+            color:var(--white-color);
             padding: 0.6rem;
-            height: 25%;
             width: 100%;
-            bottom:0;
-            background-image: linear-gradient(0deg, rgba(0,0,0,0.45) 0%, rgba(255,255,255,0) 100%);
+            font-size: 1.5rem;
+            background-color: var(--accent-color);
             box-sizing: border-box;
         }
     }
