@@ -6,6 +6,7 @@
     import { clickOutside } from "./scripts/clickOutside.js";
   import { createEventDispatcher } from "svelte";
   import { scale } from "svelte/transition";
+  import IconClose from "./icons/iconClose.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -85,7 +86,7 @@
 
 {#if showCloseButton}
     <div transition:scale={{duration:1500, opacity:1, easing:elasticOut}} bind:this={closeBtn} class="close-button">
-
+        <IconClose height={20} width={20}></IconClose>
     </div>
 {/if}
 
@@ -139,12 +140,17 @@
 
     .close-button{
         position:absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 50px;
         aspect-ratio: 1;
-        background-color: red;
+        background-color: var(--white-color);
         border-radius: 50%;
         z-index: 50;
         transform: translate(-50%, -50%);
         pointer-events: none;
+
+
     }
 </style>
