@@ -8,34 +8,39 @@
     const dispatch = createEventDispatcher();
 
     let container:HTMLElement;
-    let hover:boolean = false;
-    let click:boolean = false;
+    let banner:boolean = false;
+    let curtain:boolean = false;
     
     function mouseEnterHandle(){
-        hover = true;
+        banner = true;
     }
 
     function mouseLeaveHandle(){
-        hover = false;
+        banner = false;
     }
 
     function clickHandle(){
         let domRect = container.getBoundingClientRect();
-        click=!click;
-        dispatch("cardEvent", {openDialog:click, domRect:domRect ,info:info});
+        curtain=true;
+        banner=false;
+        dispatch("cardEvent", {openDialog:true, domRect:domRect ,info:info});
+        window.setTimeout(() => {
+            curtain = false;
+        }, 1000);
     }
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div bind:this={container} on:mouseenter={mouseEnterHandle} on:mouseleave={mouseLeaveHandle} on:click={clickHandle} class="container">
-    {#if hover}
-        {#if click}
+    
+    {#if curtain}
         <div transition:slide={{duration:1000}} class="curtain"></div>
-        {:else}
+    {/if}
+    
+    {#if banner}
         <div transition:slide={{duration:250}} class="title">
             <ConveyorBeltWord time={3.5} lenght={152.91} nb={5} word="Game of Life"></ConveyorBeltWord>
         </div>
-        {/if}
     {/if}
 </div>
 

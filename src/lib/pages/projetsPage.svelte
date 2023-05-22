@@ -60,9 +60,10 @@
         width: 100vw;
         background-color: white;
         box-sizing: border-box;
-        transition: filter 750ms ease-in-out 1000ms;
+        transition: filter 750ms ease-in-out 500ms;
         &.dialogOpen{
-            filter:brightness(0.75);
+          transition: filter 750ms ease-in-out 1000ms;
+          filter:brightness(0.75);
         }
     }
 

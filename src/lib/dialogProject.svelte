@@ -4,9 +4,9 @@
     import { elasticOut, quadInOut } from "svelte/easing";
     import ConveyorBeltWord from "./animated/conveyorBeltWord.svelte";
     import { clickOutside } from "./scripts/clickOutside.js";
-  import { createEventDispatcher } from "svelte";
-  import { scale } from "svelte/transition";
-  import IconClose from "./icons/iconClose.svelte";
+    import { createEventDispatcher } from "svelte";
+    import { scale } from "svelte/transition";
+    import IconClose from "./icons/iconClose.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -51,7 +51,7 @@
     }
 
     //Transitions
-    function splitGrid(node, {duration, delay}){
+    function open(node, {duration, delay}){
         return {
 			duration,
             delay,
@@ -60,6 +60,20 @@
 
 				return `
                     grid-template-columns: ${40*eased}% ${100-40*eased}%;
+					`
+			}
+		};
+    }
+
+    function close(node, {duration, delay}){
+        return {
+			duration,
+            delay,
+			css: t => {
+				const eased = 1-quadInOut(t);
+
+				return `
+                    grid-template-columns: ${40+60*eased}% ${60-60*eased}%;
 					`
 			}
 		};
@@ -91,7 +105,7 @@
 {/if}
 
 <div on:mouseleave={mouseLeaveHandler} on:mouseenter={mouseEnterHandler} use:clickOutside on:outclick={() => outClickHandler()} in:delay={{duration:inDelay}}>
-    <div transition:splitGrid="{{duration:750, delay:1000}}" bind:this={container} class="container">
+    <div in:open="{{duration:750, delay:1000}}" out:close="{{duration:750, delay:0}}" bind:this={container} class="container">
         <div id="img-container">
             <div class="img">
 
@@ -120,7 +134,7 @@
     .img{
         height: 100%;
         width: 100%;
-        background-color: red;
+        background-color: lightpink;
     }
 
     #description{
