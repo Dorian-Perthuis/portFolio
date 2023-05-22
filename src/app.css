@@ -6,8 +6,9 @@
   --accent-color: #595FF3;
 
   --font-size-big: 5rem;
-  --font-size-medium: 3rem;
-  --font-size-small:1rem;
+  --font-size-large: 3rem;
+  --font-size-medium: 2rem;
+  --font-size-small: 1rem;
 
   --font-family-heroBanner:'MinionPro';
 }

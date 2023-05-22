@@ -18,7 +18,7 @@
         font:inherit;
     }
     p{
-        font-size: clamp(var(--font-size-small), 4vw ,var(--font-size-medium));
+        font-size: clamp(var(--font-size-small), 4vw ,var(--font-size-large));
         padding-inline: 0.2em;
         font:inherit;
     }
