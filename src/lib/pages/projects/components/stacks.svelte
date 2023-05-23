@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import IconAngular from "./icons/iconAngular.svelte";
-  import IconTypescript from "./icons/iconTypescript.svelte";
-  import IconJavascript from "./icons/iconJavascript.svelte";
-  import IconVite from "./icons/iconVite.svelte";
-  import IconSvelte from "./icons/iconSvelte.svelte";
-  import type { size } from "./interfaces";
+  import IconAngular from "../../../icons/iconAngular.svelte";
+  import IconTypescript from "../../../icons/iconTypescript.svelte";
+  import IconJavascript from "../../../icons/iconJavascript.svelte";
+  import IconVite from "../../../icons/iconVite.svelte";
+  import IconSvelte from "../../../icons/iconSvelte.svelte";
+  import type { size } from "../../../interfaces";
   import { scale } from "svelte/transition";
   import { elasticOut, quadIn } from "svelte/easing";
 

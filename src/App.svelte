@@ -4,7 +4,7 @@
   import HeroBanner from "./lib/pages/heroBanner.svelte";
   import CvPage from "./lib/pages/CVPage.svelte";
   import ContactPage from "./lib/pages/contactPage.svelte";
-  import ProjectsPage from "./lib/pages/projetsPage.svelte";
+  import ProjectsPage from "./lib/pages/projects/projetsPage.svelte";
   
   let hamMenuActive:boolean = false;
   let pageDisplay:string = "projects";

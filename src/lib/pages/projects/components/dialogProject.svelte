@@ -1,16 +1,15 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { type Inset } from "./interfaces";
+  import { type Inset } from "../../../interfaces";
   import { elasticOut, quadInOut, quintOut } from "svelte/easing";
-  import ConveyorBeltWord from "./animated/conveyorBeltWord.svelte";
-  import { clickOutside } from "./scripts/clickOutside.js";
+  import ConveyorBeltWord from "../../../animated/conveyorBeltWord.svelte";
+  import { clickOutside } from "../../../scripts/clickOutside.js";
   import { createEventDispatcher } from "svelte";
   import { fly, scale } from "svelte/transition";
-  import IconClose from "./icons/iconClose.svelte";
+  import IconClose from "../../../icons/iconClose.svelte";
   import Stacks from "./stacks.svelte";
-  import Btn from "./buttons/btn.svelte";
-  import IconGitHub from "./icons/iconGitHub.svelte";
-  import IconBtn from "./buttons/iconBtn.svelte";
+  import Btn from "../../../buttons/btn.svelte";
+  import IconGitHub from "../../../icons/iconGitHub.svelte";
 
   const dispatch = createEventDispatcher();
 

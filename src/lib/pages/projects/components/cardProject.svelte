@@ -1,6 +1,6 @@
 <script lang="ts">
     import { slide } from "svelte/transition";
-    import ConveyorBeltWord from "./animated/conveyorBeltWord.svelte";
+    import ConveyorBeltWord from "../../../animated/conveyorBeltWord.svelte";
     import { createEventDispatcher } from "svelte";
 
     export let info = "";
