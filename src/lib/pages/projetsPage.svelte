@@ -64,6 +64,7 @@
         &.dialogOpen{
           transition: filter 750ms ease-in-out 1000ms;
           filter:brightness(0.75);
+          pointer-events: none;
         }
     }
 

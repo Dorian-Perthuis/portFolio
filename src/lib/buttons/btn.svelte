@@ -14,11 +14,12 @@
     //Settings
     let speed: number = 0.30;
     let hoverColor : string = "rgba(0,0,0,0.15)";
-    //-----
 
     //-----Variables
     let ready = false;
-    const dispatch = createEventDispatcher();
+    export let variant:string = "minimal";
+    export let color:string = "black";
+    export let size:string = "small";
 
     onMount(() => {
         ready = true;
@@ -141,19 +142,53 @@
 </script>
 
     {#if ready}
-        <button in:loadAnim={{duration:500}} bind:this={btn} on:click on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
+        <button class={`${variant} ${size} ${color}`} in:loadAnim={{duration:500}} bind:this={btn} on:click on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
     {/if}
 
 <style>
     button{
         height: fit-content;
-        background-color: var(--grey-color);
-        box-shadow: 0.3rem 0.3rem var(--accent-color);
         outline:transparent;
         border: transparent;
         box-sizing: content-box;
         padding: 1rem 2rem;
         font-size: var(--font-size-small);
         font-weight: 600;
+
+        cursor: pointer;
+    }
+
+    .white{
+        color: var(--white-color);
+    }
+
+    .black{
+        color: var(--black-color);
+    }
+    
+    .accent{
+        color: var(--accent-color);
+    }
+
+    .small{
+        font-size: var(--font-size-small);
+    }
+
+    .medium{
+        font-size: var(--font-size-medium);
+    }
+
+    .medium{
+        font-size: var(--font-size-large);
+    }
+    .minimal{
+        background-color: transparent;
+    }
+    .normal{
+        background-color: var(--grey-color);
+    }
+    .accent{
+        background-color: var(--grey-color);
+        box-shadow: 0.3rem 0.3rem var(--accent-color);
     }
 </style>

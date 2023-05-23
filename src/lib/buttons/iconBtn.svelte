@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { createEventDispatcher, onMount } from "svelte";
+    import { onMount } from "svelte";
     import { quadOut } from "svelte/easing";
 
     //----Animation variables
@@ -18,7 +18,7 @@
 
     //-----Variables
     let ready = false;
-    const dispatch = createEventDispatcher();
+    export let color:string = "accent";
 
     onMount(() => {
         ready = true;
@@ -141,7 +141,7 @@
 </script>
 
     {#if ready}
-        <button in:loadAnim={{duration:500}} bind:this={btn} on:click on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
+        <button style:--color={`var(--${color}-color)`} in:loadAnim={{duration:500}} bind:this={btn} on:click on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} id="btn"><slot></slot></button>
     {/if}
 
 <style>
@@ -149,7 +149,7 @@
         height: fit-content;
         aspect-ratio: 1;
         background-color: var(--grey-color);
-        box-shadow: 0.3rem 0.3rem var(--accent-color);
+        box-shadow: 0.3rem 0.3rem var(--color);
         outline:transparent;
         border: transparent;
         box-sizing: content-box;
