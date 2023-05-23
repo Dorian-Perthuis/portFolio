@@ -1,7 +1,7 @@
 <script lang="ts">
   import ConveyorBeltWord from "../../animated/conveyorBeltWord.svelte";
   import CardProject from "./components/cardProject.svelte";
-  import DialogProject from "./dialogProject.svelte";
+  import DialogProject from "./components/dialogProject.svelte";
   import { type Inset } from "../../interfaces";
 
   let dialogOpen:boolean = false;
