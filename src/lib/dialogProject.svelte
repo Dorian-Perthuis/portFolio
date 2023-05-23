@@ -7,6 +7,9 @@
     import { createEventDispatcher } from "svelte";
     import { scale } from "svelte/transition";
     import IconClose from "./icons/iconClose.svelte";
+  import Stacks from "./stacks.svelte";
+  import Btn from "./buttons/btn.svelte";
+  import IconGitHub from "./icons/iconGitHub.svelte";
 
     const dispatch = createEventDispatcher();
 
@@ -116,8 +119,8 @@
                 <ConveyorBeltWord word="Project" space={15} nb={6} lenght={141.63} time={7}></ConveyorBeltWord>
             </div>
 
-            <div id="stack">
-                
+            <div id="stacks">
+                <Stacks iconSize={{height:32, width:32}} techs={["angular", "vite", "svelte", "ts", "js"]}></Stacks>
             </div>
 
             <p id="text">
@@ -125,7 +128,8 @@
             </p>
 
             <div id="buttons">
-
+                <IconGitHub/>
+                <Btn>Go live !</Btn>
             </div>
         </div>
     </div>
@@ -174,13 +178,18 @@
         }
 
         & > #buttons{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
             grid-column: 1 / 3;
             grid-row: 3 / 4;
+            padding:1rem;
         }
 
         & > #stacks{
             grid-column: 1 / 2;
             grid-row: 2 / 3;
+            padding:2rem;
         }
     }
 
@@ -196,7 +205,6 @@
         z-index: 50;
         transform: translate(-50%, -50%);
         pointer-events: none;
-
 
     }
 </style>

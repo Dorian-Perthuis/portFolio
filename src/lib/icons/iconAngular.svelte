@@ -1,4 +1,10 @@
-<svg width="64" height="68" viewBox="0 0 64 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+<script lang="ts">
+  import type { size } from "../interfaces";
+
+    export let iconSize:size;
+</script>
+
+<svg width={iconSize.width} height={iconSize.height} viewBox="0 0 64 68" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_120_16)">
     <path d="M0.0249023 11.3804L31.4769 0.174194L63.7759 11.1812L58.5462 52.7937L31.4769 67.7852L4.83115 52.9929L0.0249023 11.3804Z" fill="#E23237"/>
     <path d="M63.7761 11.1812L31.4771 0.174194V67.7852L58.5463 52.8187L63.7761 11.1812Z" fill="#B52E31"/>

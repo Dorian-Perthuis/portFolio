@@ -5,3 +5,8 @@ export interface Inset{
     left:number,
     metric?:string|undefined
   }
+
+export interface size{
+  height:number,
+  width:number
+}
