@@ -112,8 +112,20 @@
             </div>
         </div>
         <div id="description">
-            <div class="title">
+            <div id="title">
                 <ConveyorBeltWord word="Project" space={15} nb={6} lenght={141.63} time={7}></ConveyorBeltWord>
+            </div>
+
+            <div id="stack">
+                
+            </div>
+
+            <p id="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum eaque quibusdam optio quae ea nostrum dolorem voluptatem, explicabo dolor, maiores tenetur in excepturi harum nemo amet laborum sed aliquid commodi.
+            </p>
+
+            <div id="buttons">
+
             </div>
         </div>
     </div>
@@ -138,17 +150,37 @@
     }
 
     #description{
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: min-content auto min-content;
         background-color: var(--accent-color);
 
-
-        & .title{
+        & > #title{
             height: fit-content;
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
             width: 100%;
             padding: 0.5rem;
             font-size: var(--font-size-medium);
             box-sizing: border-box;
             color: var(--white-color);
-            
+        }
+
+        & > #text{
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            padding: 2rem;
+            color: var(--white-color);
+        }
+
+        & > #buttons{
+            grid-column: 1 / 3;
+            grid-row: 3 / 4;
+        }
+
+        & > #stacks{
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
         }
     }
 
