@@ -3,7 +3,6 @@
     import ConveyorBeltWord from "../../../animated/conveyorBeltWord.svelte";
     import { createEventDispatcher } from "svelte";
     import type { project } from "../../../interfaces";
-    import { onMount } from "svelte";
 
     export let project:project;
 
@@ -56,9 +55,10 @@
         justify-content: end;
         min-width: 200px;
         min-height: 200px;
+        height: 250px;
+        width: 350px;
         max-width: 400px;
         max-height: 400px;
-        resize: both;
         overflow: hidden;
         isolation: isolate;
 
