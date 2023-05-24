@@ -88,11 +88,14 @@
     #main{
         position: absolute;
         display: flex;
-        justify-content: center;
-        align-items: center;
-
+        justify-content: space-between;
+        align-items: start;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        padding: 7rem 10rem;
         height: 100%;
         width: 100%;
+        box-sizing: border-box;
     }
 </style>
 
