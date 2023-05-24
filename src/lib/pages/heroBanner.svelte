@@ -1,5 +1,5 @@
 <script lang="ts">
-    import profilPicture from "../../assets/pictures/profilPicture.png";
+    import profilPicture from "../../assets/pictures/profilPicture.webp";
     import Phrase from "../animated/Phrase.svelte";
     import BubbleAnimation from "../animated/bubbleAnimation.svelte";
     import HeartAnimation from "../animated/heartAnimation.svelte";

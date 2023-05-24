@@ -1,9 +1,9 @@
-import gameOfLigePicture from "./pictures/jeu-de-la-vie.png";
-import portFolioPicture from "./pictures/portfolio.png";
-import hoverEffetPicture from "./pictures/wikihoax.png";
-import laubaProPicture from "./pictures/laubapro.png";
-import ProteorPicture from "./pictures/proteor.png";
-import wikiHoaxPicture from "./pictures/wikihoax.png";
+import gameOfLigePicture from "./pictures/jeu-de-la-vie.webp";
+import portFolioPicture from "./pictures/portfolio.webp";
+import hoverEffetPicture from "./pictures/wikihoax.webp";
+import laubaProPicture from "./pictures/laubapro.webp";
+import ProteorPicture from "./pictures/proteor.webp";
+import wikiHoaxPicture from "./pictures/wikihoax.webp";
 
 let gameOfLifeDescription:string = `
 A website that simulates the game of life create by John Horton Conway a British mathematician. The game of life is a zero-player game, only the initial state determines the entire evolution of the game. <br>
