@@ -2,17 +2,20 @@
   import ConveyorBeltWord from "../../animated/conveyorBeltWord.svelte";
   import CardProject from "./components/cardProject.svelte";
   import DialogProject from "./components/dialogProject.svelte";
-  import { type Inset } from "../../interfaces";
-
+  import { type Inset, type project } from "../../interfaces";
+  import { projects } from "../../../assets/projects";
+  
   let dialogOpen:boolean = false;
   let initDialogInset:Inset;
   let windowHeight:number;
   let windowWidth:number;
+  let project:project;
 
   function toggleDialog(e){
     dialogOpen = e.detail.openDialog;
     if(dialogOpen){
         setInitDialogInset(e.detail.domRect, windowWidth, windowHeight);
+        project = e.detail.project;
     }    
   }
 
@@ -39,16 +42,17 @@
 <svelte:window bind:innerHeight={windowHeight} bind:innerWidth={windowWidth}></svelte:window>
 
 {#if dialogOpen}
-<DialogProject inDelay={1000} initInset={initDialogInset} on:closeDialog={closeDialogHandler}></DialogProject>
+  <DialogProject inDelay={1000} project={project} initInset={initDialogInset} on:closeDialog={closeDialogHandler}></DialogProject>
 {/if}
 
 <div class="container" class:dialogOpen={dialogOpen}>
-    <div id="title">
-        <h1><ConveyorBeltWord nb={8} space={25} time={10} lenght={364.38} word="Projects"></ConveyorBeltWord></h1></div>
-    <div id="main">
-
-        <CardProject on:cardEvent={cardEventHandler}></CardProject>
-    </div>
+  <div id="title">
+      <h1><ConveyorBeltWord nb={6} space={25} time={10} word="Projects"></ConveyorBeltWord></h1></div>
+  <div id="main">
+    {#each projects as project}
+      <CardProject project={project} on:cardEvent={cardEventHandler}></CardProject>
+    {/each}
+  </div>
 </div>
 
 <style lang="scss">

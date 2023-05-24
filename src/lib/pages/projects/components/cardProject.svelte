@@ -2,8 +2,10 @@
     import { slide } from "svelte/transition";
     import ConveyorBeltWord from "../../../animated/conveyorBeltWord.svelte";
     import { createEventDispatcher } from "svelte";
+    import type { project } from "../../../interfaces";
+    import { onMount } from "svelte";
 
-    export let info = "";
+    export let project:project;
 
     const dispatch = createEventDispatcher();
 
@@ -11,6 +13,7 @@
     let banner:boolean = false;
     let curtain:boolean = false;
     
+
     function mouseEnterHandle(){
         banner = true;
     }
@@ -23,7 +26,7 @@
         let domRect = container.getBoundingClientRect();
         curtain=true;
         banner=false;
-        dispatch("cardEvent", {openDialog:true, domRect:domRect ,info:info});
+        dispatch("cardEvent", {openDialog:true, domRect:domRect ,project:project});
         window.setTimeout(() => {
             curtain = false;
         }, 1000);
@@ -32,6 +35,7 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div bind:this={container} on:mouseenter={mouseEnterHandle} on:mouseleave={mouseLeaveHandle} on:click={clickHandle} class="container">
+    <img src={project.picture} alt={project.name}>
     
     {#if curtain}
         <div transition:slide={{duration:1000}} class="curtain"></div>
@@ -39,7 +43,7 @@
     
     {#if banner}
         <div transition:slide={{duration:250}} class="title">
-            <ConveyorBeltWord time={3.5} lenght={152.91} nb={5} word="Game of Life"></ConveyorBeltWord>
+            <ConveyorBeltWord time={3.5} nb={5} word={project.name}></ConveyorBeltWord>
         </div>
     {/if}
 </div>
@@ -54,10 +58,15 @@
         min-height: 200px;
         max-width: 400px;
         max-height: 400px;
-        background-color: lightpink;
         resize: both;
-        overflow: auto;
+        overflow: hidden;
         isolation: isolate;
+
+        & > img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
         & > .curtain{
             position: absolute;
             width: 100%;

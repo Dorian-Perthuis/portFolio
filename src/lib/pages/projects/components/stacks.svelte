@@ -29,7 +29,7 @@
 </script>
 
 <div class="container" style:--direction={direction}>
-  {#if true}
+  {#if allTechs["angular"]}
     <div
       in:scale={{ duration: 1500, delay: inDelay, opacity: 1, easing: elasticOut }}
       out:scale={{ duration: 250, opacity: 1, easing: quadIn }}

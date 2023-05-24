@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { type Inset } from "../../../interfaces";
+  import { type Inset, type project } from "../../../interfaces";
   import { elasticOut, quadInOut, quintOut } from "svelte/easing";
   import ConveyorBeltWord from "../../../animated/conveyorBeltWord.svelte";
   import { clickOutside } from "../../../scripts/clickOutside.js";
@@ -15,6 +15,7 @@
 
   export let inDelay: number = 0;
   export let initInset: Inset;
+  export let project:project;
 
   let container: HTMLElement;
   let closeBtn: HTMLElement;
@@ -22,6 +23,7 @@
 
   onMount(() => {
     setInset(container, initInset);
+
     window.setTimeout(() => {
       setInset(container, {
         top: 20,
@@ -67,7 +69,7 @@
         const eased = quadInOut(t);
 
         return `
-                    grid-template-columns: ${40 * eased}% ${100 - 40 * eased}%;
+                grid-template-columns: ${40 * eased}% ${100 - 40 * eased}%;
 					`;
       },
     };
@@ -131,7 +133,7 @@
     class="container"
   >
     <div id="img-container">
-      <div class="img" />
+      <img src={project.picture} alt={`${project.name}`}/>
     </div>
     <div id="description">
       <div
@@ -139,10 +141,9 @@
         in:fly={{ duration: 1500, delay: 1500, x: -150, easing: quintOut }}
       >
         <ConveyorBeltWord
-          word="Project"
+          word={project.name}
           space={15}
           nb={6}
-          lenght={141.63}
           time={7}
         />
       </div>
@@ -151,7 +152,7 @@
         <Stacks
           inDelay={2150}
           iconSize={{ height: 32, width: 32 }}
-          techs={["angular", "vite", "svelte", "ts", "js"]}
+          techs={project.stack}
         />
       </div>
 
@@ -160,10 +161,7 @@
         in:fly={{ duration: 750, delay: 1750, y: 20 }}
         out:fly={{ duration: 250, y: 20 }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum eaque
-        quibusdam optio quae ea nostrum dolorem voluptatem, explicabo dolor,
-        maiores tenetur in excepturi harum nemo amet laborum sed aliquid
-        commodi.
+        {project.description}
       </p>
 
       <div
@@ -188,9 +186,10 @@
     transition: inset 750ms ease-in-out;
   }
 
-  .img {
+  img {
     height: 100%;
     width: 100%;
+    object-fit: cover;
     background-color: lightpink;
   }
 
