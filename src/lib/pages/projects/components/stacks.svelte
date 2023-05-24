@@ -8,6 +8,7 @@
   import type { size } from "../../../interfaces";
   import { scale } from "svelte/transition";
   import { elasticOut, quadIn } from "svelte/easing";
+  import IconFigma from "../../../icons/iconFigma.svelte";
 
   export let direction: string | undefined = "column";
   export let techs: Array<string> = [];
@@ -20,6 +21,7 @@
     js: false,
     vite: false,
     svelte: false,
+    figma: false
   };
   onMount(() => {
     techs.forEach((element) => {
@@ -29,6 +31,14 @@
 </script>
 
 <div class="container" style:--direction={direction}>
+  {#if allTechs["figma"]}
+  <div
+    in:scale={{ duration: 1500, delay: inDelay, opacity: 1, easing: elasticOut }}
+    out:scale={{ duration: 250, opacity: 1, easing: quadIn }}
+  >
+    <IconFigma {iconSize} />
+  </div>
+{/if}
   {#if allTechs["angular"]}
     <div
       in:scale={{ duration: 1500, delay: inDelay, opacity: 1, easing: elasticOut }}

@@ -1,11 +1,10 @@
 <script lang="ts">
-    export let height:number = 32;
-    export let width:number = 32;
-  </script>   
+    import type { size } from "../interfaces";
   
-  <svg
-    width={height}
-    height={width}
+      export let iconSize:size;
+  </script>
+  
+  <svg width={iconSize.width} height={iconSize.height}
     viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_128_2)">
 <path d="M196 0H60C26.8629 0 0 26.8629 0 60V196C0 229.137 26.8629 256 60 256H196C229.137 256 256 229.137 256 196V60C256 26.8629 229.137 0 196 0Z" fill="#242938"/>
