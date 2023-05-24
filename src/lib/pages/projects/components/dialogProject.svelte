@@ -161,7 +161,7 @@
         in:fly={{ duration: 750, delay: 1750, y: 20 }}
         out:fly={{ duration: 250, y: 20 }}
       >
-        {project.description}
+        {@html project.description}
       </p>
 
       <div

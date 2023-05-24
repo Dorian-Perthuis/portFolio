@@ -5,6 +5,17 @@ import laubaProPicture from "./pictures/laubapro.png";
 import ProteorPicture from "./pictures/proteor.png";
 import wikiHoaxPicture from "./pictures/wikihoax.png";
 
+let gameOfLifeDescription:string = `
+A website that simulates the game of life create by John Horton Conway a British mathematician. The game of life is a zero-player game, only the initial state determines the entire evolution of the game. <br>
+<br>
+It’s a cellular automaton, it’s a grid of cells that can be alive or dead and there are all governed by the same rules which define if a cell is alive or dead. The only variable used by the rules is the number of cell’s neighbors.<br>
+<br>
+A website is single threaded that why I challenge myself to find ways to render a maximum of cells at the maximum framerate. 
+For more technical detail I let you check the GitHub repository.
+`;
+
+
+
 export let projects = [
         {
             name:"Game Of Life",
@@ -12,7 +23,7 @@ export let projects = [
             github_url:"https://github.com/Dorian-Perthuis/jeu-de-la-vie",
             live_url:"https://ubiquitous-scone-1283a5.netlify.app/",
             picture:gameOfLigePicture,
-            description:"Game of Life"
+            description:gameOfLifeDescription
         },
         {
             name:"PortFolio",
@@ -54,4 +65,4 @@ export let projects = [
             picture:wikiHoaxPicture,
             description:"wikiHoax"
         }
-]
+];
