@@ -29,7 +29,7 @@
         dispatch("cardEvent", {openDialog:true, domRect:domRect ,project:project});
         window.setTimeout(() => {
             curtain = false;
-        }, 1000);
+        }, 1250);
     }
 </script>
 
