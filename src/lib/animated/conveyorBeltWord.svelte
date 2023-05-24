@@ -21,14 +21,9 @@
         `;
     });
 
-    function hoverHandle(e){
-        console.log(wordWidth);
-        console.log(sepWidth);
-    }
-    
 </script>
 
-    <div on:mouseenter={hoverHandle} class="container" bind:this={container}>
+    <div class="container" bind:this={container}>
         <div class="text">
             <span bind:offsetWidth={wordWidth}>{word}</span><span bind:offsetWidth={sepWidth}>{separator} </span>
             {#each Array(nb-1) as _, index (index)}
