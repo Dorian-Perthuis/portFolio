@@ -86,7 +86,7 @@
     display: flex;
     width: 100%;
     height: 100%;
-    justify-content: space-between;
+    gap:1.5rem;
     align-items: center;
     flex-direction: var(--direction);
   }
