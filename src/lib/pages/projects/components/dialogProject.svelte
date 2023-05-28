@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { type Inset, type project } from "../../../interfaces";
-  import { elasticOut, quadInOut, quintOut } from "svelte/easing";
+  import { elasticOut, quadInOut, quintIn, quintOut } from "svelte/easing";
   import ConveyorBeltWord from "../../../animated/conveyorBeltWord.svelte";
   import { clickOutside } from "../../../scripts/clickOutside.js";
   import { createEventDispatcher } from "svelte";
@@ -80,12 +80,11 @@
       duration,
       delay,
       css: (t) => {
-        const eased = 1 - quadInOut(t);
+        const eased = quadInOut(t);
 
         return `
-                    grid-template-columns: ${40 + 60 * eased}% ${
-          60 - 60 * eased
-        }%;
+                grid-template-columns: ${40 * eased}% ${100 - 40 * eased}%;
+                opacity:${1.5*eased};
 					`;
       },
     };
@@ -139,6 +138,7 @@
       <div
         id="title"
         in:fly={{ duration: 1500, delay: 1500, x: -150, easing: quintOut }}
+        out:fly={{ duration: 500, delay: 0, x: 150, easing: quintIn }}
       >
         <ConveyorBeltWord
           word={project.name}
@@ -185,13 +185,18 @@
     z-index: 5;
     transition: inset 750ms ease-in-out;
   }
+  
+  #img-container{
+    overflow: hidden;
 
-  img {
+    & >   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
     background-color: lightpink;
   }
+  }
+
 
   #description {
     overflow: hidden;

@@ -3,6 +3,7 @@
     import ConveyorBeltWord from "../../../animated/conveyorBeltWord.svelte";
     import { createEventDispatcher } from "svelte";
     import type { project } from "../../../interfaces";
+  import { quadInOut } from "svelte/easing";
 
     export let project:project;
 
@@ -11,7 +12,6 @@
     let container:HTMLElement;
     let banner:boolean = false;
     let curtain:boolean = false;
-    
 
     function mouseEnterHandle(){
         banner = true;
@@ -34,17 +34,18 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div bind:this={container} on:mouseenter={mouseEnterHandle} on:mouseleave={mouseLeaveHandle} on:click={clickHandle} class="container">
-    <img src={project.picture} alt={project.name}>
+    <p class="project-name">{project.name}</p>
     
     {#if curtain}
         <div transition:slide={{duration:1000}} class="curtain"></div>
     {/if}
     
     {#if banner}
-        <div transition:slide={{duration:250}} class="title">
-            <ConveyorBeltWord time={3.5} nb={5} word={project.name}></ConveyorBeltWord>
+        <div transition:slide={{duration:1000, easing:quadInOut}} class="title">
+            <ConveyorBeltWord time={7} nb={5} space={25} word={project.name}></ConveyorBeltWord>
         </div>
     {/if}
+    <hr>
 </div>
 
 <style lang="scss">
@@ -53,14 +54,12 @@
         display: flex;
         flex-direction: column;
         justify-content: end;
-        min-width: 200px;
-        min-height: 200px;
-        height: 250px;
-        width: 350px;
-        max-width: 400px;
-        max-height: 400px;
+        align-items: end;
+        height: fit-content;
+        width: 50%;
         overflow: hidden;
         isolation: isolate;
+        flex-grow: 1;
 
         & > img{
             height: 100%;
@@ -76,15 +75,27 @@
         & > .title{
             position:absolute;
             display: flex;
-            justify-content: start;
-            align-items: end;
+            justify-content: center;
+            align-items: center;
             color:var(--white-color);
-            padding: 0.6rem;
             width: 100%;
-            font-size: 1.5rem;
-            background-color: var(--accent-color);
+            height: 100%;
+            font-size: var(--font-size-medium);
+            background-color: var(--black-color);
             box-sizing: border-box;
             z-index: 1;
+        }
+
+        & > .project-name{
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: var(--font-size-large);
+        }
+
+        & > hr{
+          border: 1px solid black;
+          width: 100%;
         }
     }
 </style>

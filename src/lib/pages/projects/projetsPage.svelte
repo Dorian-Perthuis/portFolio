@@ -88,10 +88,9 @@
     #main{
         position: absolute;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: start;
-        flex-wrap: wrap;
-        gap: 2.5rem;
+        align-items: end;
         padding: 7rem 10rem;
         height: 100%;
         width: 100%;
