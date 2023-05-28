@@ -14,7 +14,39 @@ A website is single threaded that why I challenge myself to find ways to render 
 For more technical detail I let you check the GitHub repository.
 `;
 
+let portfolioDescription:string = `
+My first portfolio! I wanted to make a portfolio that try to follow the code of creative developer portfolio, use good transition, animation and motion to create a real and unique user experience. <br>
+<br>
+I take my inspiration from the sites of the day of the awwwards website. I love how developers try to innovate with new animation, plays with colors and now, the new meta, 3D shapes. 
+`;
 
+let hoverEffectDescription:string = `
+It’s one of my first solo project with a real idea. I wanted to make new types of hover effect for buttons. My mojo was “reusable, flexibility and simplicity”, I try to make seperated blocks that can be combined to create unique hover animation. 
+<br><br>
+Still in developement.
+`;
+
+let laubaproDescription:string = `
+This was a renumerate project, I applied to the mission deliver by the junior enterprise of my engineer school in France.<br>
+<br> 
+I was committed to create a Figma prototype that you can view from the link and developed it with HTML, CSS and JavaScript. The focus of the mission was only the user interface, the header and the form to let user to input data and make it responsive.
+
+`;
+
+let proteorDescription:string = `
+The most complicated project I was committed to do. This project is from my internship at Proteor for three and half months in 2022. I had the responsibility to developed from scratch a web application to replace Proteor’s workshops paper organization. <br>
+<br>
+Here is the Figma prototype that you can view live from the link. My main guideline was simplicity and make sure to match at most the business flow that already in place so to make sure the curve learning was the smoothest possible. <br>
+<br>
+This was the first time I was confront by UI/UX and Figma, so I learned the main concepts in the same time.
+`;
+
+let wikiHoax:string = `
+Its a school project that I want to develop. This is a game that take inspiration from pedantix, a game that you need to guest words to try to find the title of a Wikipedia page. <br>
+<br>
+We take this concept and twist it so instead of Wikipedia it is WikiHow’s title page that you must find.
+
+`;
 
 export let projects = [
         {
@@ -31,7 +63,7 @@ export let projects = [
             github_url:"",
             live_url:"",
             picture:portFolioPicture,
-            description:"PortFolio"
+            description: portfolioDescription
         },
         {
             name:"Hover Effect",
@@ -39,7 +71,7 @@ export let projects = [
             github_url:"",
             live_url:"",
             picture:hoverEffetPicture,
-            description:"Hover Effect"
+            description: hoverEffectDescription
         },
         {
             name:"LaubaPro Prototype",
@@ -47,7 +79,7 @@ export let projects = [
             github_url:"",
             live_url:"",
             picture:laubaProPicture,
-            description:"Laubapro"
+            description: laubaproDescription
         },
         {
             name:"Proteor Prototype",
@@ -55,7 +87,7 @@ export let projects = [
             github_url:"",
             live_url:"",
             picture:ProteorPicture,
-            description:"Proteor"
+            description:proteorDescription
         },
         {
             name:"WikiHoax",
@@ -63,6 +95,6 @@ export let projects = [
             github_url:"",
             live_url:"",
             picture:wikiHoaxPicture,
-            description:"wikiHoax"
+            description:wikiHoax
         }
 ];
