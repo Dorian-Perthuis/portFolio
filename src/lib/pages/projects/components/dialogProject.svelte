@@ -138,7 +138,7 @@
       <div
         id="title"
         in:fly={{ duration: 1500, delay: 1500, x: -150, easing: quintOut }}
-        out:fly={{ duration: 500, delay: 0, x: 150, easing: quintIn }}
+        out:fly={{ duration: 750, delay: 0, easing: quintOut }}
       >
         <ConveyorBeltWord
           word={project.name}
